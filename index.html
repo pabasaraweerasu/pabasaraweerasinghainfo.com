@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pabasara Weerasingha | Portfolio</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav id="navbar">
+    <div class="nav-left">
+      <a href="#about">About</a>
+      <a href="#skills">Skills</a>
+      <a href="#contact">Contact</a>
+    </div>
+    <div class="nav-right">
+      <div class="clock" id="clock"></div>
+      <a href="https://wa.me/94772578848" target="_blank"><i class="fab fa-whatsapp"></i></a>
+      <a href="https://instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
+      <a href="https://tiktok.com" target="_blank"><i class="fab fa-tiktok"></i></a>
+      <a href="mailto:endofchutta@gmail.com"><i class="fas fa-envelope"></i></a>
+      <a href="tel:+94772578848"><i class="fas fa-phone"></i></a>
+      
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section class="hero">
+    <h1>Pabasara Weerasingha</h1>
+    <p>Web Developer | Designer | Editor | Content Editor</p>
+    <div class="5butterflies"></div>
+  </section>
+
+  <!-- About -->
+  <section id="about" class="about">
+    <h2>About Me</h2>
+    <p>
+      Hi, I’m Pabasara Weerasingha. I’m passionate about creating modern, clean,
+      and user-friendly websites. With skills in development, design, and
+      content editing, I love turning ideas into digital experiences.
+    </p>
+    <div class="butterflies"></div>
+  </section>
+
+  <!-- Skills -->
+  <section id="skills" class="skills">
+    <h2>Skills</h2>
+    <div class="skills-list">
+      <div class="skill">Web Developer</div>
+      <div class="skill">Designer</div>
+      <div class="skill">Editor</div>
+      <div class="skill">Content Editor</div>
+    </div>
+    <div class="butterflies"></div>
+  </section>
+
+   <!-- Contact -->
+   <section id="contact" class="contact">
+    <h2>Contact Me</h2>
+    <p>Let’s connect!</p>
+    <a href="mailto:endofchutta@gmail.com">Email Me</a>
+    <a href="https://linkedin.com" target="_blank">LinkedIn</a>
+    <a href="https://github.com" target="_blank">GitHub</a>
+    <div class="butterflies"></div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    &copy; 2025 Pabasara Weerasingha. All rights reserved.
+  </footer>
+
+  <!-- Scripts -->
+  <script>
+    // Smooth scroll
+    document.querySelectorAll('nav a').forEach(link => {
+      link.addEventListener('click', function(e) {
+        e.preventDefault();
+        document.querySelector(this.getAttribute('href'))
+          .scrollIntoView({ behavior: 'smooth' });
+      });
+    });
+
+    // Real-time clock
+    function updateClock() {
+      const now = new Date();
+      let hours = now.getHours();
+      let minutes = now.getMinutes();
+      let seconds = now.getSeconds();
+      const ampm = hours >= 12 ? 'PM' : 'AM';
+      hours = hours % 12 || 12;
+      minutes = minutes < 10 ? "0" + minutes : minutes;
+      seconds = seconds < 10 ? "0" + seconds : seconds;
+      document.getElementById("clock").textContent = `${hours}:${minutes}:${seconds} ${ampm}`;
+    }
+    setInterval(updateClock, 1000);
+    updateClock();
+
+    // Auto-hide navbar
+    let lastScroll = 0;
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+      const currentScroll = window.pageYOffset;
+      if (currentScroll > lastScroll) {
+        navbar.style.top = "-80px"; 
+      } else {
+        navbar.style.top = "0"; 
+      }
+      lastScroll = currentScroll;
+    });
+  </script>
+
+</body>
+</html>
